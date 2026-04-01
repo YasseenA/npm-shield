@@ -1,5 +1,7 @@
 # 🛡️ NPM Shield
 
+[![Install in VS Code](https://img.shields.io/badge/Install-VS%20Code-blue?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=YasseenAwadallah.npm-shield)
+
 **Instantly scan your npm packages for vulnerabilities — right inside VS Code.**
 
 NPM Shield runs `npm audit` automatically and shows you exactly which packages have security issues, how severe they are, and how to fix them — without ever leaving your editor.
@@ -14,15 +16,13 @@ Every time you save `package.json`, NPM Shield automatically scans for vulnerabi
 ### 📊 Security Dashboard
 A full breakdown of every vulnerability found — severity, CVSS score, affected version range, and a direct link to the security advisory.
 
-![NPM Shield Dashboard](https://raw.githubusercontent.com/YasseenA/npm-shield/main/assets/screenshot.png)
-
 ### 🔴 Inline warnings
 Red and yellow squiggles appear directly on vulnerable package names in your `package.json` — hover to see the full details.
 
 ### 🔧 One-click fix
 Click "Run npm audit fix" in the dashboard to automatically patch all fixable vulnerabilities.
 
-### 📊 Status bar
+### 📈 Status bar
 Your current vulnerability count is always visible at the bottom of VS Code — green for clean, red for critical.
 
 ---
