@@ -1,0 +1,81 @@
+{
+  "name": "npm-shield",
+  "displayName": "NPM Shield",
+  "description": "Instantly scan your package.json for vulnerabilities, outdated packages, and security issues — right inside VS Code.",
+  "version": "1.0.0",
+  "publisher": "YasseenAwadallah",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other", "Linters"],
+  "keywords": ["npm", "security", "vulnerabilities", "audit", "packages"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YasseenA/npm-shield"
+  },
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "activationEvents": ["onStartupFinished", "workspaceContains:package.json"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "npmShield.scan",
+        "title": "NPM Shield: Scan for Vulnerabilities",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "npmShield.showDashboard",
+        "title": "NPM Shield: Open Security Dashboard",
+        "icon": "$(pulse)"
+      },
+      {
+        "command": "npmShield.fixAll",
+        "title": "NPM Shield: Auto-fix All Vulnerabilities"
+      },
+      {
+        "command": "npmShield.scanOnSave",
+        "title": "NPM Shield: Toggle Scan on Save"
+      }
+    ],
+    "configuration": {
+      "title": "NPM Shield",
+      "properties": {
+        "npmShield.scanOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically scan when package.json is saved."
+        },
+        "npmShield.showInlineWarnings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show inline warnings in package.json editor."
+        },
+        "npmShield.severityThreshold": {
+          "type": "string",
+          "enum": ["low", "moderate", "high", "critical"],
+          "default": "moderate",
+          "description": "Minimum severity level to show warnings for."
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        { "command": "npmShield.scan" },
+        { "command": "npmShield.showDashboard" },
+        { "command": "npmShield.fixAll" },
+        { "command": "npmShield.scanOnSave" }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
